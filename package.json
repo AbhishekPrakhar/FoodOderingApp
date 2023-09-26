@@ -20,7 +20,8 @@
   "homepage": "https://github.com/AbhishekPrakhar/FoodOderingApp#readme",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
