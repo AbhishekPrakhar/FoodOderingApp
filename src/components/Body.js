@@ -2,11 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import useRestaurantList from "./utils/useRestaurantList";
 import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router-dom";
-import { RESTAURANTS_URL } from "./utils/constants";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
 
-    const {allRestaurants, filterResult} = useRestaurantList(RESTAURANTS_URL);
+    const {allRestaurants, filterResult} = useRestaurantList();
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const inputRef = useRef(null);
 
@@ -32,6 +32,8 @@ const Body = () => {
         setFilteredRestaurant(filteredData)
     }
 
+    const ShimmerUI = [<Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />]    
+
     return (
         <div className='min-h-[75vh]'>
             <div className='m-4 p-4 flex justify-center items-center'>
@@ -43,6 +45,7 @@ const Body = () => {
             </div>
             <div className='flex flex-wrap justify-center'>
                 {
+                    filterResult ? 
                     (filteredRestaurant.length !== 0 ? filteredRestaurant : filterResult)?.map(restaurant => (
                         <Link key = {restaurant.info.id} to={"/restaurants/" + restaurant.info.id} style={{"cursor": 'default'}}>
                             <RestaurantCard
@@ -54,6 +57,8 @@ const Body = () => {
                             />
                         </Link>
                     ))
+                    :
+                    ShimmerUI
                 }
             </div>
         </div>

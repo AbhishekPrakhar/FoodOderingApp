@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { RESTAURANTS_URL } from "./constants";
 
-const useRestaurantList = (url) => {
+const useRestaurantList = () => {
     const [allRestaurants, setAllRestaurants] = useState(null);
     const [filterResult, setFilterResult] = useState()
 
     const fetchData = async () => {
         try {
-            const response = await fetch(url)
+            const response = await fetch(RESTAURANTS_URL)
 
             if(response.ok) {
                 const jsonData = await response.json()

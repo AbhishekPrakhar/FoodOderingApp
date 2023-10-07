@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
     return (
         <div className='flex justify-between items-center shadow-lg px-28 bg-[#F29548]'>
-            <Link to="/"><img className='w-20 my-3' src={Logo} alt="app_logo"  /></Link>
+            <Link to="/"><img className='w-16 my-3' src={Logo} alt="app_logo"  /></Link>
             <div>
                 <ul className='flex space-x-10'>
                     <Link to="/"><li className='cursor-pointer font-semibold'>Home</li></Link>
