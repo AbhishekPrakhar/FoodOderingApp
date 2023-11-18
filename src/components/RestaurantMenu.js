@@ -14,7 +14,17 @@ const RestaurantMenu = () => {
 
     return (
         <div className='text-center min-h-[75vh]'>
-            <h1 className='text-xl font-semibold'>{restaurantInfo?.card?.card?.info?.name}</h1>
+            <div className='border-b-2 border-gray-200 flex justify-center'>
+                <div>
+                    <h1 className='text-xl font-semibold'>{restaurantInfo?.card?.card?.info?.name}</h1>
+                    <p>{restaurantInfo?.card?.card?.info?.cuisines.join(",")}</p>
+                </div>
+                <div>
+                    <p>{restaurantInfo?.card?.card?.info?.avgRating}</p>
+                    <p>{restaurantInfo?.card?.card?.info?.totalRatingsString}</p>
+                </div>
+            </div>
+            
             {
                 menuWithCategory?.map(category => (
                     <>
