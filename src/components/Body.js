@@ -3,12 +3,15 @@ import useRestaurantList from "./utils/useRestaurantList";
 import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from "./utils/useOnlineStatus";
+import Offline from "./Offline";
 
 const Body = () => {
 
     const {allRestaurants, filterResult} = useRestaurantList();
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const inputRef = useRef(null);
+    const onlineStatus = useOnlineStatus();
 
     const handleSearch = () => {
         const searchText =  inputRef.current.value.trim();
@@ -32,8 +35,14 @@ const Body = () => {
         setFilteredRestaurant(filteredData)
     }
 
+    // console.log(onlineStatus);
+
     const ShimmerUI = [<Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />, <Shimmer />]    
 
+    if(!onlineStatus) {
+        return <Offline />
+    }
+    
     return (
         <div className='min-h-[75vh]'>
             <div className='m-4 p-4 flex justify-center items-center'>
