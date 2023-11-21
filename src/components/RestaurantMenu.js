@@ -2,10 +2,17 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/hooks/useRestaurantMenu";
 import { CDN_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/stores/cartSlice";
 
 const RestaurantMenu = () => {
     const { resId } = useParams()
     const { menuItems } = useRestaurantMenu(resId)
+    const dispatch = useDispatch();
+
+    const handleAddItems = (item) => {
+        dispatch(addItem(item))
+    }
 
     const restaurantInfo = menuItems?.cards?.find(c => c?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.Restaurant");
 
@@ -43,7 +50,7 @@ const RestaurantMenu = () => {
                                     </div>
                                     <div>
                                         <img className='w-24' src={CDN_URL+item?.card?.info?.imageId} alt="dish-image" />
-                                        <button className='border-2 border-gray-800 rounded-md p-1'>ADD +</button>
+                                        <button className='border-2 border-gray-800 rounded-md p-1' onClick={() => handleAddItems(item)}>ADD +</button>
                                     </div>
                                 </div>
                             ))
