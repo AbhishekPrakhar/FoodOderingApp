@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import useRestaurantMenu from "./utils/useRestaurantMenu";
-import { CDN_URL } from "./utils/constants";
+import useRestaurantMenu from "../utils/hooks/useRestaurantMenu";
+import { CDN_URL } from "../utils/constants";
 
 const RestaurantMenu = () => {
     const { resId } = useParams()
@@ -19,7 +19,7 @@ const RestaurantMenu = () => {
                 <img src={CDN_URL + restaurantInfo?.card?.card?.info?.cloudinaryImageId} alt="res-img" className='w-64 rounded-md'  />
                 <div className='mx-5'>
                     <h1 className='text-xl font-semibold'>{restaurantInfo?.card?.card?.info?.name}</h1>
-                    <p>{restaurantInfo?.card?.card?.info?.cuisines.join(",").trim()}</p>
+                    <p>{restaurantInfo?.card?.card?.info?.cuisines}</p>
                     <div className='flex'>
                         <p>{restaurantInfo?.card?.card?.info?.avgRating}</p>
                         <p>{restaurantInfo?.card?.card?.info?.totalRatingsString}</p>

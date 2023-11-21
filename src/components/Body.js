@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import useRestaurantList from "./utils/useRestaurantList";
+import useRestaurantList from "../utils/hooks/useRestaurantList";
 import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
-import useOnlineStatus from "./utils/useOnlineStatus";
+import useOnlineStatus from "../utils/hooks/useOnlineStatus";
 import Offline from "./Offline";
 
 const Body = () => {

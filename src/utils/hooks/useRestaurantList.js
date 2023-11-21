@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { RESTAURANTS_URL } from "./constants";
+import { RESTAURANTS_URL } from "../constants";
 
 const useRestaurantList = () => {
     const [allRestaurants, setAllRestaurants] = useState(null);
