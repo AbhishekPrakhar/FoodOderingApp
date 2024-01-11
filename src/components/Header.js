@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { createPortal } from "react-dom";
-import Logo from "../../public/Logo3.png"
+import Logo from "../assets/Logo3.png"
 import { Link } from "react-router-dom";
 import UserContext from "../utils/contexts/UserContext";
 import { useSelector } from "react-redux";
