@@ -12,6 +12,7 @@ const Header = () => {
     const [showCart, setShowCart] = useState(false);
 
     console.log(showCart);
+    console.log(React);
 
     return (
         <div className='flex justify-between items-center shadow-lg px-28 bg-[#F29548]'>
